@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xDo-iO-8YD">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Travel Diaries-->
+        <scene sceneID="gY8-Xz-Q7f">
+            <objects>
+                <tableViewController id="t5G-hk-WBR" customClass="todoController" customModule="coreData_basic_Level2_" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wsv-Kj-qbp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tasks" rowHeight="145" id="xKd-5E-6sc">
+                                <rect key="frame" x="0.0" y="28" width="414" height="145"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xKd-5E-6sc" id="G8v-2U-tiT">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="145"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="t5G-hk-WBR" id="lzx-pw-or6"/>
+                            <outlet property="delegate" destination="t5G-hk-WBR" id="O4W-W0-j4L"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Travel Diaries" id="x3i-62-Ztu">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus.circle.fill" catalog="system" id="0jW-e9-dLK">
+                            <color key="tintColor" red="0.94509803921568625" green="0.15294117647058825" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="pKY-XB-9DR" kind="show" id="VSg-qd-qLX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableview" destination="Wsv-Kj-qbp" id="gMH-eb-Pe0"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p8P-rN-QbS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1098.5507246376812" y="103.79464285714285"/>
+        </scene>
+        <!--Add City-->
+        <scene sceneID="ZTv-F1-O47">
+            <objects>
+                <viewController id="pKY-XB-9DR" customClass="addCityViewController" customModule="coreData_basic_Level2_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QNJ-CL-7WY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PL9-30-pbI">
+                                <rect key="frame" x="10" y="93" width="394" height="769"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="city name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="huC-WQ-NYH">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="jjF-ak-DHl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moments2" translatesAutoresizingMaskIntoConstraints="NO" id="jcv-jv-apI">
+                                        <rect key="frame" x="0.0" y="60" width="394" height="474"/>
+                                        <gestureRecognizers/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Ozl-O6-Q5w" appends="YES" id="NP1-Zu-bHu"/>
+                                        </connections>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="famous thing" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kPE-Mu-95i">
+                                        <rect key="frame" x="0.0" y="544" width="394" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="rAi-fl-E4S"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PL6-LQ-hL6">
+                                        <rect key="frame" x="0.0" y="604" width="394" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="1CR-Tj-j1o"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Rate the city" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="25K-0w-Gpi">
+                                        <rect key="frame" x="0.0" y="664" width="394" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="cR7-U1-ovm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qyi-LT-zv9">
+                                        <rect key="frame" x="0.0" y="724" width="394" height="45"/>
+                                        <color key="backgroundColor" red="0.94509803920000002" green="0.1529411765" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="eqg-Yx-Kt1"/>
+                                        </constraints>
+                                        <state key="normal" title="Add City">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addCity:" destination="pKY-XB-9DR" eventType="touchUpInside" id="417-pL-nlp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="haw-8s-FI1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="haw-8s-FI1" firstAttribute="trailing" secondItem="PL9-30-pbI" secondAttribute="trailing" constant="10" id="3bK-cn-Vmu"/>
+                            <constraint firstItem="haw-8s-FI1" firstAttribute="bottom" secondItem="PL9-30-pbI" secondAttribute="bottom" id="7cC-c9-58C"/>
+                            <constraint firstItem="PL9-30-pbI" firstAttribute="leading" secondItem="haw-8s-FI1" secondAttribute="leading" constant="10" id="lAc-Lj-jfy"/>
+                            <constraint firstItem="PL9-30-pbI" firstAttribute="top" secondItem="haw-8s-FI1" secondAttribute="top" constant="5" id="sji-Wb-AOv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add City" id="e1F-dA-bZU"/>
+                    <connections>
+                        <outlet property="cityFamousthings" destination="kPE-Mu-95i" id="pIR-xn-xDQ"/>
+                        <outlet property="cityName" destination="huC-WQ-NYH" id="Agc-6v-tpz"/>
+                        <outlet property="cityPrice" destination="PL6-LQ-hL6" id="lwo-Tv-njc"/>
+                        <outlet property="cityRating" destination="25K-0w-Gpi" id="fYG-im-JSg"/>
+                        <outlet property="opeanimageview" destination="Ozl-O6-Q5w" id="Dvc-ab-Epm"/>
+                        <outlet property="selectCityImage" destination="jcv-jv-apI" id="Mnw-a9-m0C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OOV-6D-b5w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ozl-O6-Q5w">
+                    <connections>
+                        <action selector="selectImage:" destination="pKY-XB-9DR" id="N0Q-uu-tBu"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1915.9420289855075" y="103.79464285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jIN-LM-pa4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xDo-iO-8YD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PFr-yU-lfc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.96078431369999995" green="0.68627450980000004" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="t5G-hk-WBR" kind="relationship" relationship="rootViewController" id="feT-b2-w4h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VQi-ES-bpE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="189.85507246376812" y="103.79464285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="moments2" width="806.219970703125" height="730.95001220703125"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
