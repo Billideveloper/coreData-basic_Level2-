@@ -129,9 +129,7 @@ class addCityViewController: UIViewController, UIImagePickerControllerDelegate &
         self.mycity.append(mcity)
         self.myImage.append(mimage)
         
-        
-        print(mycity)
-        print(myImage)
+        self.navigationController?.popToRootViewController(animated: true)
         
     }
     

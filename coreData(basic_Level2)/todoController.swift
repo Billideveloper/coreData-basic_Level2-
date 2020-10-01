@@ -12,6 +12,11 @@ import CoreData
 
 class todoController: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    
+    
+    var city = [City]()
+    var image = [Image]()
+    
     @IBOutlet var tableview: UITableView!
     
     let mytask = ["find Work" , "get a milk"]
@@ -19,11 +24,68 @@ class todoController: UITableViewController, NSFetchedResultsControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        //fetchcity()
         
-        //fetchcityimage()
-        // Do any additional setup after loading the view.
+        fetchdata()
+        
+        
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        fetchdata()
+    }
+    
+    
+    func fetchdata(){
+        
+        let fetchrequest: NSFetchRequest<City> = City.fetchRequest()
+        let fetch : NSFetchRequest<Image> = Image.fetchRequest()
+        
+        do {
+           let city =  try persistanceService.context.fetch(fetchrequest)
+            let image = try persistanceService.context.fetch(fetch)
+            self.image = image
+            self.city = city
+            tableview.reloadData()
+        } catch {
+            print(error)
+        }
+        
+    }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return city.count
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableview.dequeueReusableCell(withIdentifier: "tasks", for: indexPath) as! cityTableViewCell
+        
+        cell.cityName.text = city[indexPath.row].name
+    
+        cell.cityRating.text = "\(city[indexPath.row].rating)"
+        
+        cell.averageCost.text = "\(city[indexPath.row].price)"
+        
+        cell.famPoint.text = city[indexPath.row].famous
+        
+        return cell
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 //    var controller : NSFetchedResultsController<City>!
 //    var controller2 : NSFetchedResultsController<Image>!
@@ -87,30 +149,30 @@ class todoController: UITableViewController, NSFetchedResultsControllerDelegate 
 //    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 //        tableview.beginUpdates()
 //    }
-//    
+//
 //    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 //        tableview.endUpdates()
 //    }
-//    
+//
 //    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 400
 //    }
-//    
-//    
+//
+//
 //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//       
+//
 //        return 0
 //    }
-//    
+//
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableview.dequeueReusableCell(withIdentifier: "tasks", for: indexPath) as! cityTableViewCell
-//        
+//
 //        cellinfo(cell: cell, indexpath: indexPath as NSIndexPath)
-//        
+//
 //        return cell
 //    }
-//    
-//  
+//
+//
 
 
 //
@@ -125,56 +187,56 @@ class todoController: UITableViewController, NSFetchedResultsControllerDelegate 
 //
 //
     
-    func fetchcity(){
-        
-        //let request = NSFetchRequest<NSFetchRequestResult>(entityName: "City")
-        
-        let request : NSFetchRequest<City> = City.fetchRequest()
-        let request2 : NSFetchRequest<Image> = Image.fetchRequest()
-                //request.predicate = NSPredicate(format: "age = %@", "12")
-                
-        //request.returnsObjectsAsFaults = false
-    
-        let moneysort = NSSortDescriptor(key: "price", ascending: true)
-        request.sortDescriptors = [moneysort]
-        
-        let sort = NSSortDescriptor(key: "name", ascending: true)
-        request2.sortDescriptors = [sort]
-        
-        
-        let mcontroller1 = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        
-        mcontroller1.delegate = self
-        
-        
-        let mcontroller2 = NSFetchedResultsController(fetchRequest: request2, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        
-        mcontroller2.delegate = self
-        
-        
-        
-        do{
-            try mcontroller1.performFetch()
-            
-        }catch{
-            
-            let err = error as NSError
-            print("\(err)")
-            
-        }
-        
-        do{
-            try mcontroller2.performFetch()
-            
-        }catch{
-            
-            let err = error as NSError
-            print("\(err)")
-            
-        }
-        
-        
-                
-    }
+//    func fetchcity(){
+//
+//        //let request = NSFetchRequest<NSFetchRequestResult>(entityName: "City")
+//
+//        let request : NSFetchRequest<City> = City.fetchRequest()
+//        let request2 : NSFetchRequest<Image> = Image.fetchRequest()
+//                //request.predicate = NSPredicate(format: "age = %@", "12")
+//
+//        //request.returnsObjectsAsFaults = false
+//
+//        let moneysort = NSSortDescriptor(key: "price", ascending: true)
+//        request.sortDescriptors = [moneysort]
+//
+//        let sort = NSSortDescriptor(key: "name", ascending: true)
+//        request2.sortDescriptors = [sort]
+//
+//
+//        let mcontroller1 = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+//
+//        mcontroller1.delegate = self
+//
+//
+//        let mcontroller2 = NSFetchedResultsController(fetchRequest: request2, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+//
+//        mcontroller2.delegate = self
+//
+//
+//
+//        do{
+//            try mcontroller1.performFetch()
+//
+//        }catch{
+//
+//            let err = error as NSError
+//            print("\(err)")
+//
+//        }
+//
+//        do{
+//            try mcontroller2.performFetch()
+//
+//        }catch{
+//
+//            let err = error as NSError
+//            print("\(err)")
+//
+//        }
+//
+//
+//
+//    }
 
 }
