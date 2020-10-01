@@ -22,6 +22,8 @@
 		186CC7B725207FA90066DC37 /* coreData_basic_Level2_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 186CC7B525207FA90066DC37 /* coreData_basic_Level2_.xcdatamodeld */; };
 		186CC7B925207FAF0066DC37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186CC7B825207FAF0066DC37 /* Assets.xcassets */; };
 		186CC7BC25207FAF0066DC37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186CC7BA25207FAF0066DC37 /* LaunchScreen.storyboard */; };
+		18BD56852525B99000E5D849 /* cityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BD56842525B99000E5D849 /* cityTableViewCell.swift */; };
+		18BD56882526091500E5D849 /* persistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BD56872526091500E5D849 /* persistanceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		186CC7B825207FAF0066DC37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		186CC7BB25207FAF0066DC37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186CC7BD25207FAF0066DC37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18BD56842525B99000E5D849 /* cityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cityTableViewCell.swift; sourceTree = "<group>"; };
+		18BD56872526091500E5D849 /* persistanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = persistanceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 				1811753E252386780003F33E /* trans.swift */,
 				18117541252389070003F33E /* UItextfieldimage_extension.swift */,
 				181175442523965C0003F33E /* constants.swift */,
+				18BD56842525B99000E5D849 /* cityTableViewCell.swift */,
+				18BD56872526091500E5D849 /* persistanceService.swift */,
 			);
 			path = "coreData(basic_Level2)";
 			sourceTree = "<group>";
@@ -171,6 +177,8 @@
 				18117542252389070003F33E /* UItextfieldimage_extension.swift in Sources */,
 				1811753A252384DF0003F33E /* City+CoreDataProperties.swift in Sources */,
 				1811753B252384DF0003F33E /* Image+CoreDataClass.swift in Sources */,
+				18BD56882526091500E5D849 /* persistanceService.swift in Sources */,
+				18BD56852525B99000E5D849 /* cityTableViewCell.swift in Sources */,
 				18117528252383B10003F33E /* addCityViewController.swift in Sources */,
 				186CC7AD25207FA90066DC37 /* AppDelegate.swift in Sources */,
 				186CC7AF25207FA90066DC37 /* SceneDelegate.swift in Sources */,

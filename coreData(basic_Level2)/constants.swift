@@ -7,7 +7,7 @@
 import UIKit
 
 let appdelegate = UIApplication.shared.delegate as! AppDelegate
-let context = appdelegate.persistentContainer.viewContext
+let context = persistanceService.persistentContainer.viewContext
 
 class GradientView: UIView {
     

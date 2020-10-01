@@ -5,11 +5,11 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="cityToimage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="imageTocity" inverseEntity="Image"/>
+        <relationship name="cityToimage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="imageTocity" inverseEntity="Image"/>
     </entity>
     <entity name="Image" representedClassName=".Image" syncable="YES">
         <attribute name="image" optional="YES" attributeType="Transformable" valueTransformerName="trans"/>
-        <relationship name="imageTocity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="cityToimage" inverseEntity="City"/>
+        <relationship name="imageTocity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="City" inverseName="cityToimage" inverseEntity="City"/>
     </entity>
     <elements>
         <element name="City" positionX="-63" positionY="-18" width="128" height="118"/>
